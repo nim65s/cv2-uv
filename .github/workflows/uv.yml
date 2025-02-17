@@ -2,7 +2,6 @@ name: Test with uv
 
 on:
   push:
-    branches:
 
 jobs:
   uv:
@@ -15,5 +14,7 @@ jobs:
       - uses: astral-sh/setup-uv@v5
 
       - run: uv sync
+
+      - run: uv pip freeze
 
       - run: uv run hello.py

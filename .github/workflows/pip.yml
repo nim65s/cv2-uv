@@ -15,5 +15,6 @@ jobs:
 
       - run: pip install -r requirements.txt
 
-      - run: python hello.py
+      - run: pip freeze
 
+      - run: python hello.py
