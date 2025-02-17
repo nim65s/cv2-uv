@@ -1,0 +1,19 @@
+name: Test with uv
+
+on:
+  push:
+    branches:
+
+jobs:
+  uv:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - run: sudo apt-get update && sudo apt-get install -qqy libegl1-mesa-dev
+
+      - uses: astral-sh/setup-uv@v5
+
+      - run: uv sync
+
+      - run: uv run hello.py

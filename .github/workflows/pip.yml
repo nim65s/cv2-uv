@@ -1,0 +1,19 @@
+name: Test with pip
+
+on:
+  push:
+
+jobs:
+  pip:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - run: sudo apt-get update && sudo apt-get install -qqy libegl1-mesa-dev
+
+      - uses: actions/setup-python@v5
+
+      - run: pip install -r requirements.txt
+
+      - run: python hello.py
+
