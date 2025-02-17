@@ -1,6 +1,3 @@
-def main():
-    print("Hello from cv2-uv!")
+import cv2
 
-
-if __name__ == "__main__":
-    main()
+print(cv2.ppf_match_3d_ICP)
