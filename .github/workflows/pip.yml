@@ -5,13 +5,18 @@ on:
 
 jobs:
   pip:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
 
       - run: sudo apt-get update && sudo apt-get install -qqy libegl1-mesa-dev
 
       - uses: actions/setup-python@v5
+
+      - run: |
+          python -m venv .venv
+          . .venv/bin/activate
+          echo PATH=$PATH >> $GITHUB_ENV
 
       - run: pip install -r requirements.txt
 
